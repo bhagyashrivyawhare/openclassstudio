@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>OpenClass Studio</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="studio.css">
-</head>
-
 <body>
 
 <div class="studio-layout">
@@ -25,37 +10,43 @@
             OpenClass Studio
         </div>
 
-        <button onclick="showPage('dashboard')">
+        <button class="menu-btn active"
+        onclick="showPage('dashboard',this)">
             📊 Dashboard
         </button>
 
-        <button onclick="showPage('content')">
+        <button class="menu-btn"
+        onclick="showPage('content',this)">
             🎬 Content
         </button>
 
-        <button onclick="showPage('upload')">
+        <button class="menu-btn"
+        onclick="showPage('upload',this)">
             ⬆ Upload
         </button>
 
-        <button onclick="showPage('live')">
+        <button class="menu-btn"
+        onclick="showPage('live',this)">
             🔴 Go Live
         </button>
 
-        <button onclick="showPage('record')">
+        <button class="menu-btn"
+        onclick="showPage('record',this)">
             🎥 Record
         </button>
 
-        <button onclick="showPage('analytics')">
+        <button class="menu-btn"
+        onclick="showPage('analytics',this)">
             📈 Analytics
         </button>
 
     </aside>
 
-    <!-- Main -->
+    <!-- Main Content -->
 
     <main class="main-content">
 
-        <!-- DASHBOARD -->
+        <!-- Dashboard Page -->
 
         <section id="dashboard-page" class="page">
 
@@ -84,83 +75,84 @@
 
         </section>
 
-        <!-- CONTENT -->
+        <!-- Content Page -->
 
         <section
-            id="content-page"
-            class="page hidden">
+        id="content-page"
+        class="page hidden">
 
             <h1>Content</h1>
 
-            <div id="videoList"></div>
+            <div
+            id="videoList"
+            class="video-grid">
+            </div>
 
         </section>
 
-        <!-- UPLOAD -->
+        <!-- Upload Page -->
 
         <section
-            id="upload-page"
-            class="page hidden">
+        id="upload-page"
+        class="page hidden">
 
             <h1>Upload Video</h1>
 
             <input
-                type="file"
-                id="videoFile"
-                accept="video/*">
+            type="file"
+            id="videoFile"
+            accept="video/*">
 
             <input
-                type="file"
-                id="thumbnailFile"
-                accept="image/*">
+            type="file"
+            id="thumbnailFile"
+            accept="image/*">
 
             <input
-                type="text"
-                id="videoTitle"
-                placeholder="Video Title">
+            type="text"
+            id="videoTitle"
+            placeholder="Video Title">
 
             <textarea
-                id="videoDescription"
-                placeholder="Description"></textarea>
+            id="videoDescription"
+            placeholder="Description"></textarea>
 
             <button
-                onclick="uploadVideo()">
-                Publish
+            class="primary-btn"
+            onclick="uploadVideo()">
+                Publish Video
             </button>
 
             <div id="uploadProgress"></div>
 
         </section>
 
-        <!-- LIVE -->
+        <!-- Live Page -->
 
         <section
-            id="live-page"
-            class="page hidden">
+        id="live-page"
+        class="page hidden">
 
             <h1>Go Live</h1>
 
             <video
-                id="livePreview"
-                autoplay
-                muted
-                playsinline>
+            id="livePreview"
+            autoplay
+            muted
+            playsinline>
             </video>
 
             <div class="actions">
 
-                <button
-                    onclick="startLive()">
+                <button onclick="startLive()">
                     Start Live
                 </button>
 
-                <button
-                    onclick="shareScreen()">
+                <button onclick="shareScreen()">
                     Share Screen
                 </button>
 
-                <button
-                    onclick="stopLive()">
+                <button onclick="stopLive()">
                     End Live
                 </button>
 
@@ -168,46 +160,44 @@
 
         </section>
 
-        <!-- RECORD -->
+        <!-- Record Page -->
 
         <section
-            id="record-page"
-            class="page hidden">
+        id="record-page"
+        class="page hidden">
 
             <h1>Record Studio</h1>
 
             <video
-                id="recordPreview"
-                autoplay
-                muted>
+            id="recordPreview"
+            autoplay
+            muted>
             </video>
 
             <div class="actions">
 
-                <button
-                    onclick="startRecording()">
-                    Record
+                <button onclick="startRecording()">
+                    Start Recording
                 </button>
 
-                <button
-                    onclick="stopRecording()">
-                    Stop
+                <button onclick="stopRecording()">
+                    Stop Recording
                 </button>
 
             </div>
 
         </section>
 
-        <!-- ANALYTICS -->
+        <!-- Analytics Page -->
 
         <section
-            id="analytics-page"
-            class="page hidden">
+        id="analytics-page"
+        class="page hidden">
 
             <h1>Analytics</h1>
 
             <canvas
-                id="analyticsChart">
+            id="analyticsChart">
             </canvas>
 
         </section>
@@ -220,4 +210,3 @@
 <script type="module" src="studio.js"></script>
 
 </body>
-</html>
