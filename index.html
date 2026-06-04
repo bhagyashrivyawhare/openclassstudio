@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OpenClass Studio</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="studio.css">
+</head>
+
+<body>
+
+<div class="studio-layout">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            OpenClass Studio
+        </div>
+
+        <button onclick="showPage('dashboard')">
+            📊 Dashboard
+        </button>
+
+        <button onclick="showPage('content')">
+            🎬 Content
+        </button>
+
+        <button onclick="showPage('upload')">
+            ⬆ Upload
+        </button>
+
+        <button onclick="showPage('live')">
+            🔴 Go Live
+        </button>
+
+        <button onclick="showPage('record')">
+            🎥 Record
+        </button>
+
+        <button onclick="showPage('analytics')">
+            📈 Analytics
+        </button>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main-content">
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard-page" class="page">
+
+            <h1>Dashboard</h1>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Total Videos</h3>
+                    <p id="totalVideos">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Views</h3>
+                    <p id="totalViews">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Live Status</h3>
+                    <p id="liveStatus">Offline</p>
+                </div>
+
+            </div>
+
+            <div id="recentUploads"></div>
+
+        </section>
+
+        <!-- CONTENT -->
+
+        <section
+            id="content-page"
+            class="page hidden">
+
+            <h1>Content</h1>
+
+            <div id="videoList"></div>
+
+        </section>
+
+        <!-- UPLOAD -->
+
+        <section
+            id="upload-page"
+            class="page hidden">
+
+            <h1>Upload Video</h1>
+
+            <input
+                type="file"
+                id="videoFile"
+                accept="video/*">
+
+            <input
+                type="file"
+                id="thumbnailFile"
+                accept="image/*">
+
+            <input
+                type="text"
+                id="videoTitle"
+                placeholder="Video Title">
+
+            <textarea
+                id="videoDescription"
+                placeholder="Description"></textarea>
+
+            <button
+                onclick="uploadVideo()">
+                Publish
+            </button>
+
+            <div id="uploadProgress"></div>
+
+        </section>
+
+        <!-- LIVE -->
+
+        <section
+            id="live-page"
+            class="page hidden">
+
+            <h1>Go Live</h1>
+
+            <video
+                id="livePreview"
+                autoplay
+                muted
+                playsinline>
+            </video>
+
+            <div class="actions">
+
+                <button
+                    onclick="startLive()">
+                    Start Live
+                </button>
+
+                <button
+                    onclick="shareScreen()">
+                    Share Screen
+                </button>
+
+                <button
+                    onclick="stopLive()">
+                    End Live
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- RECORD -->
+
+        <section
+            id="record-page"
+            class="page hidden">
+
+            <h1>Record Studio</h1>
+
+            <video
+                id="recordPreview"
+                autoplay
+                muted>
+            </video>
+
+            <div class="actions">
+
+                <button
+                    onclick="startRecording()">
+                    Record
+                </button>
+
+                <button
+                    onclick="stopRecording()">
+                    Stop
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- ANALYTICS -->
+
+        <section
+            id="analytics-page"
+            class="page hidden">
+
+            <h1>Analytics</h1>
+
+            <canvas
+                id="analyticsChart">
+            </canvas>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script type="module" src="studio.js"></script>
+
+</body>
+</html>
