@@ -1,362 +1,74 @@
-/* =========================
-   OPENCLASS STUDIO THEME
-========================= */
-
 :root{
     --primary:#2563eb;
     --primary-light:#3b82f6;
 
-    --bg:#0b1120;
-    --sidebar:#111827;
-    --card:#1e293b;
+    --bg:#f4f7fb;
+    --sidebar:#ffffff;
+    --card:#ffffff;
 
-    --text:#ffffff;
-    --muted:#94a3b8;
+    --text:#1e293b;
+    --muted:#64748b;
 
-    --border:rgba(255,255,255,.08);
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Plus Jakarta Sans',sans-serif;
+    --border:#e2e8f0;
 }
 
 body{
-    background:
-    linear-gradient(
-        135deg,
-        #020617,
-        #0b1120,
-        #111827
-    );
-
-    color:white;
-    min-height:100vh;
-}
-
-/* Layout */
-
-.studio-layout{
-    display:flex;
+    background: var(--bg);
+    color: var(--text);
     min-height:100vh;
 }
 
 /* Sidebar */
-
 .sidebar{
-    width:260px;
-
-    background:
-    rgba(15,23,42,.85);
-
-    backdrop-filter:blur(20px);
-
+    background:#ffffff;
     border-right:1px solid var(--border);
-
-    padding:25px;
-
-    display:flex;
-    flex-direction:column;
 }
 
-.logo{
-    font-size:28px;
-    font-weight:800;
-
-    margin-bottom:30px;
-
-    background:
-    linear-gradient(
-        90deg,
-        #60a5fa,
-        #2563eb
-    );
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.menu-btn{
-    width:100%;
-
-    border:none;
-
-    background:transparent;
-
-    color:white;
-
-    text-align:left;
-
-    padding:14px 18px;
-
-    border-radius:14px;
-
-    margin-bottom:10px;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.menu-btn:hover{
-    background:
-    rgba(37,99,235,.15);
-}
-
-.menu-btn.active{
-    background:
-    linear-gradient(
-        90deg,
-        rgba(37,99,235,.3),
-        rgba(59,130,246,.15)
-    );
-
-    border:1px solid
-    rgba(59,130,246,.3);
-}
-
-/* Main Content */
-
-.main-content{
-    flex:1;
-    padding:35px;
-    overflow-y:auto;
-}
-
-.page h1{
-    font-size:42px;
-    font-weight:800;
-    margin-bottom:25px;
-}
-
-/* Dashboard Cards */
-
-.cards{
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
-
-    gap:20px;
-}
-
+/* Cards */
 .card{
-
-    background:
-    rgba(30,41,59,.7);
-
-    backdrop-filter:blur(18px);
-
-    border:
-    1px solid rgba(255,255,255,.06);
-
-    border-radius:24px;
-
-    padding:25px;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.25);
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    box-shadow:0 4px 20px rgba(0,0,0,.08);
 }
 
-.card h3{
-    color:var(--muted);
-    margin-bottom:10px;
+/* Active menu */
+.menu-btn.active{
+    background:#eff6ff;
+    border-left:4px solid #2563eb;
+    color:#2563eb;
 }
 
-.card p{
-    font-size:38px;
-    font-weight:800;
+/* Hover */
+.menu-btn:hover{
+    background:#f1f5f9;
 }
 
-/* Upload Page */
-
-#upload-page input,
-#upload-page textarea{
-
-    width:100%;
-
-    background:
-    rgba(15,23,42,.8);
-
-    border:
-    1px solid rgba(255,255,255,.08);
-
-    color:white;
-
-    padding:14px;
-
-    border-radius:14px;
-
-    margin-bottom:15px;
-}
-
-#upload-page textarea{
-    min-height:140px;
-}
-
+/* Buttons */
 .primary-btn{
-
-    background:
-    linear-gradient(
-        90deg,
-        #2563eb,
-        #3b82f6
-    );
-
-    border:none;
-
+    background:#2563eb;
     color:white;
-
-    padding:14px 28px;
-
-    border-radius:14px;
-
-    cursor:pointer;
-
-    font-weight:700;
+    border-radius:12px;
 }
 
 .primary-btn:hover{
-    opacity:.9;
+    background:#1d4ed8;
 }
 
-/* Video Grid */
-
-.video-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fill,minmax(320px,1fr));
-
-    gap:20px;
-}
-
-.video-card{
-
-    background:
-    rgba(30,41,59,.7);
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    border:
-    1px solid rgba(255,255,255,.05);
-}
-
-.video-card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-}
-
-.video-info{
-    padding:15px;
-}
-
-/* Live & Record Preview */
-
-#livePreview,
-#recordPreview{
-
-    width:100%;
-
-    max-width:1000px;
-
-    height:550px;
-
-    background:black;
-
-    border-radius:25px;
-
-    border:
-    1px solid rgba(255,255,255,.08);
-
-    margin-bottom:20px;
-}
-
-.actions{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.actions button{
-
-    background:
-    linear-gradient(
-        90deg,
-        #2563eb,
-        #3b82f6
-    );
-
-    border:none;
-
-    color:white;
-
-    padding:14px 22px;
-
-    border-radius:12px;
-
-    cursor:pointer;
+/* Inputs */
+#upload-page input,
+#upload-page textarea{
+    background:#ffffff;
+    border:1px solid #dbeafe;
+    color:#1e293b;
 }
 
 /* Analytics */
-
 #analytics-page{
-    background:
-    rgba(30,41,59,.7);
-
-    border-radius:25px;
-
-    padding:25px;
-
-    border:
-    1px solid rgba(255,255,255,.06);
-}
-
-/* Hidden */
-
-.hidden{
-    display:none !important;
+    background:#ffffff;
+    border:1px solid #e5e7eb;
 }
 
 /* Scrollbar */
-
-::-webkit-scrollbar{
-    width:8px;
-}
-
 ::-webkit-scrollbar-thumb{
     background:#2563eb;
-    border-radius:20px;
-}
-
-/* Mobile */
-
-@media(max-width:900px){
-
-    .studio-layout{
-        flex-direction:column;
-    }
-
-    .sidebar{
-        width:100%;
-    }
-
-    .main-content{
-        padding:15px;
-    }
-
-    .page h1{
-        font-size:28px;
-    }
-
-    #livePreview,
-    #recordPreview{
-        height:250px;
-    }
 }
